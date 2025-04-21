@@ -29,7 +29,7 @@ const bookStore = {
         },
         {
             id:5,
-            title: 'You Don’t Know JS',
+            title: "You Don’t Know JS",
             author: 'Kyle Simpson',
             imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/41T5H8u7fUL._SX331_BO1,204,203,200_.jpg'
         },
@@ -45,3 +45,25 @@ const bookStore = {
 
 // Write your code here!
 
+const bookStoreTitle = document.querySelector("#header")
+bookStoreTitle.textContent = bookStore.name
+
+bookStore.books.forEach(book => {
+
+const bookList = document.querySelector('#book-list')
+
+const bookContainer = document.createElement(`li`)
+const bookTitle = document.createElement(`h3`)
+const bookAuthor = document.createElement(`p`)
+const bookImage = document.createElement(`img`)
+
+
+bookTitle.textContent = book.title
+bookAuthor.textContent = book.author
+bookImage.src = book.imageUrl
+
+bookContainer.append(bookTitle);
+bookContainer.append(bookAuthor);
+bookContainer.append(bookImage);
+bookList.append(bookContainer);
+});
